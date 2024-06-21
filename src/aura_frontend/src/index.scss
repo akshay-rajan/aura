@@ -1,6 +1,6 @@
 html {
   background: #000000;
-  font-family: System, monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
 }
 
@@ -16,12 +16,10 @@ body {
   border-radius: 40px;
 }
 .header-div {
-  display: flex;
   text-align: center;
-  align-items: center;
   position: relative;
   cursor: default;
-  width: 50%;
+  width: 50vw;
   padding: 1em;
   margin: 30px;
   max-width: 640px;
@@ -34,11 +32,12 @@ body {
   display: flex;
   text-align: center;
   align-items: center;
+  height: 80vh;
 }
 .faucet-div {
   cursor: default;
   margin: 2em auto;
-  width: 50%;
+  width: 30%;
   background: #c793f8;
   color: rgb(0, 0, 0);
   border-radius: 10px;
@@ -47,7 +46,64 @@ body {
 }
 
 
-// !
+// ! Balance
+
+.balance-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-div {
+  cursor: default;
+  margin: 2em auto;
+  width: 50%;
+  min-height: 200px;
+  background: #c793f8;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 1em;
+  max-width: 40vw;
+}
+button#btn-request-balance {
+  margin-top: 20px;
+}
+
+// ! Transfer
+
+.transfer-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.transfer-head, .balance-head {
+  margin: 10px;
+  padding: 50px;
+  width: 30vw;
+  font-size: 50px;
+  color: #c793f8;
+}
+.transfer-head {
+  text-align: center;
+}
+
+.transfer-div {
+  cursor: default;
+  margin: 2em auto;
+  width: 50%;
+  min-height: 200px;
+  background: #c793f8;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 1em;
+  max-width: 40vw;
+}
+
+button#btn-transfer {
+  margin-top: 50px;
+}
+
+// ! ------
 
 span:after {
   content: " ";
@@ -113,12 +169,13 @@ button,
   color: white;
   font-family: inherit;
   font-size: inherit;
-  background: green;
+  background: #8101f8;
+  width: 200px;
+  height: 50px;
   padding: 0 1em;
-  box-shadow: 0.5em 0.5em 3px rgba(0, 0, 0, 0.5);
   position: relative;
-  transition: 0.2s all ease-in;
-  border: 1px outset green;
+  transition: 0.1s all ease-in;
+  border-radius: 7px;
 }
 
 button.full-width,
@@ -135,16 +192,15 @@ button:before,
   bottom: 0;
   content: "";
   position: absolute;
-  /*background: rgba(255,255,0,.5); /* DEBUG CLICK AREA */
 }
 
 button:hover,
 .button:active,
 .button:focus,
 .button:hover {
-  transform: translate3d(0.25em, 0.25em, 10em);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  background: limegreen;
+  background: #c793f8;
+  background-color: black;
 }
 
 button:hover:before,
@@ -160,25 +216,18 @@ button:focus:before,
   left: 0.25em;
   top: 0.25em;
   margin-right: 0.25em;
-  background: gray;
-  border: 1px outset #707070;
+  background: #ddc5f3;
+  opacity: 0.7;
 }
 
 button:disabled {
   transform: translate3d(0.25em, 0.25em, 10em);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  background: gray;
+  background: #d0d0d0;
   border: 1px outset #707070;
 }
 
-button:first-letter,
-.button:first-letter {
-  color: yellow;
-}
 
-button#btn-transfer {
-  margin-top: 20px;
-}
 
 input,
 textarea {

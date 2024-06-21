@@ -4,9 +4,6 @@ function Faucet() {
   return (
     <div className="faucet-div">
       <h2>
-        <span role="img" aria-label="tap emoji">
-          🚰
-        </span>
         Faucet
       </h2>
       <label>Get your free 10,000 Aura to your account.</label>
