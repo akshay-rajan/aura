@@ -10,7 +10,7 @@ function Balance() {
         <p className="trade-buttons">
           <button id="btn-request-balance">Check Balance</button>
         </p>
-        <p>This account has a balance of XYZ.</p>
+        <p id="balance-result">No Balance!</p>
       </div>
       <h1 className="balance-head">Balance</h1>
     </div>

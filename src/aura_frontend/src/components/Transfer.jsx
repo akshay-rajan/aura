@@ -6,22 +6,22 @@ function Transfer() {
       <h1 className="transfer-head">Transfer <br /> Tokens</h1>
       <div className="transfer-div">
         <div className="transfer">
-          <fieldset>
-            <legend>To Account:</legend>
+        <div className="fieldset">
+            <label>To Account:</label>
             <ul>
               <li>
                 <input type="text" id="transfer-to-id"/>
               </li>
             </ul>
-          </fieldset>
-          <fieldset>
-            <legend>Amount:</legend>
+          </div>
+          <div className="fieldset">
+            <label>Amount:</label>
             <ul>
               <li>
                 <input type="number" id="amount"/>
               </li>
             </ul>
-          </fieldset>
+          </div>
           <p className="trade-buttons">
             <button id="btn-transfer">
               Transfer
