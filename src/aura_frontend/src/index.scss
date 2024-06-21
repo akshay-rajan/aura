@@ -1,5 +1,5 @@
 html {
-  background: #a5a4ce;
+  background: #000000;
   font-family: System, monospace;
   font-size: 10pt;
 }
@@ -8,6 +8,46 @@ body {
   padding: 0;
   margin: 0;
 }
+
+// ! Main
+
+#coin-logo-1 {
+  width: 120px;
+  border-radius: 40px;
+}
+.header-div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  cursor: default;
+  width: 50%;
+  padding: 1em;
+  margin: 30px;
+  max-width: 640px;
+}
+#heading {
+  color: #c793f8;
+  font-size: 130px;
+}
+.main-div {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.faucet-div {
+  cursor: default;
+  margin: 2em auto;
+  width: 50%;
+  background: #c793f8;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 1em;
+  max-width: 40vw;
+}
+
+
+// !
 
 span:after {
   content: " ";

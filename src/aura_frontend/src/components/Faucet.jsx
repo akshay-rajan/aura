@@ -2,7 +2,7 @@ import React from "react";
 
 function Faucet() {
   return (
-    <div className="blue window">
+    <div className="faucet-div">
       <h2>
         <span role="img" aria-label="tap emoji">
           🚰
