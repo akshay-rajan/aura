@@ -26,4 +26,12 @@ actor Token {
 
         return balance;
     };
+<<<<<<< HEAD
+=======
+
+    public query func getSymbol() : async Text {
+        return symbol;
+    };
+    
+>>>>>>> e3a7107 (Initial local commit)
 };
