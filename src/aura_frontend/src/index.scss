@@ -236,8 +236,9 @@ button:focus:before,
 button:disabled {
   transform: translate3d(0.25em, 0.25em, 10em);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  background: #d0d0d0;
-  border: 1px outset #707070;
+  background-color: black;
+  color: #707070;
+  border: 1px outset #b3b3b3;
 }
 
 

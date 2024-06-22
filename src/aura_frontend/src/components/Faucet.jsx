@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { aura_backend } from "../../../declarations/aura_backend";
 
 function Faucet() {
+  
+  const [isDisabled, setDisabled] = useState(false);
+  const [buttonText, setButtonText] = useState("Redeem");
+
+  // Redeem the tokens to the user's account
+  async function handleClick() {
+    setDisabled(true);
+    const res = await aura_backend.payOut();
+    setButtonText(res);
+  }
+
   return (
     <div className="faucet-div">
       <h2>
@@ -8,7 +21,7 @@ function Faucet() {
       </h2>
       <label>Get your free 10,000 Aura to your account.</label>
       <p className="trade-buttons">
-        <button id="btn-payout">Redeem</button>
+        <button id="btn-payout" onClick={handleClick} disabled={isDisabled}>{buttonText}</button>
       </p>
     </div>
   );

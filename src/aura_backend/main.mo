@@ -1,6 +1,7 @@
 import Principal "mo:base/Principal";
 import HashMap "mo:base/HashMap";
 import Nat "mo:base/Nat";
+import Debug "mo:base/Debug";
 
 
 actor Token {
@@ -26,9 +27,25 @@ actor Token {
 
         return balance;
     };
-    
+
     public query func getSymbol() : async Text {
         return symbol;
+    };
+
+    // Giveaway tokens (Update method)
+    // Shared methods are those that can also be called by other actors
+    // By default, all public methods are shared
+    // We can use shared method to identify the principal id of the canister calling it
+    public shared(msg) func payOut() : async Text {
+        // Debug.print(debug_show(msg));
+        // Check whether the current user has not redeemed already
+        if (balances.get(msg.caller) == null) {
+            let freeTokenAmount = 10000;
+            balances.put(msg.caller, freeTokenAmount);
+            return "Success!";
+        } else {
+            return "Already Claimed!";
+        }
     };
     
 };
