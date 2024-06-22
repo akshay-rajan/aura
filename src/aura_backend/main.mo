@@ -37,7 +37,7 @@ actor Token {
     // By default, all public methods are shared
     // We can use shared method to identify the principal id of the canister calling it
     public shared(msg) func payOut() : async Text {
-        // Debug.print(debug_show(msg));
+        Debug.print(debug_show(msg));
         // Check whether the current user has not redeemed already
         if (balances.get(msg.caller) == null) {
             let freeTokenAmount = 10000;
@@ -47,5 +47,8 @@ actor Token {
             return "Already Claimed!";
         }
     };
+
+    // Transfer Tokens from one account to another
     
+
 };

@@ -8,7 +8,7 @@ function Header() {
       <div className="header-div" id="logo">
         <h1>
           <span role="img" aria-label="tap emoji">
-            <img src="../../public/coin_logo1.jpg" id="coin-logo-1" alt="coin-logo"></img>
+            <img src="coin_logo1.jpg" id="coin-logo-1" alt="coin-logo"></img>
           </span>
           <Aura />
         </h1>
