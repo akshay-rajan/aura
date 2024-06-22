@@ -48,7 +48,24 @@ actor Token {
         }
     };
 
-    // Transfer Tokens from one account to another
+    // Transfer Tokens from the function caller to another id
+    public shared(msg) func transfer(to : Principal, amount : Nat) : async Text {
+        let fromBal = await balanceOf(msg.caller);
+        // Check for sufficient balance
+        if (fromBal > amount) {
+            
+            // Update balance of the sender
+            let newBal : Nat = fromBal - amount;
+            balances.put(msg.caller, newBal);
+            // Update the balance of reciever
+            let newToBal = (await balanceOf(to)) + amount;
+            balances.put(to, newToBal);
+
+            return "Success!";
+        } else {
+            return "Insufficient Balance!"
+        };
+    };
     
 
 };

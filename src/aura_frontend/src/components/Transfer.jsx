@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { aura_backend } from "../../../declarations/aura_backend";
+import { Principal } from "@dfinity/principal";
+
 
 function Transfer() {
+  
+  let [reciever, setReciever] = useState("");
+  let [amount, setAmount] = useState("");
+  let [disabled, setDisable] = useState(false);
+  let [feedback, setFeedback] = useState("");
+  let [isHidden, setHidden] = useState(true);
+
+  async function handleClick() {
+    setDisable(true);
+    const recipient = Principal.fromText(reciever);
+    const amt = Number(amount);
+    const result = await aura_backend.transfer(recipient, amt);
+    setFeedback(result);
+    setHidden(false);
+    setDisable(false);
+  }
+
   return (
     <div className="transfer-main">
       <h1 className="transfer-head">Transfer <br /> Tokens</h1>
@@ -10,7 +31,12 @@ function Transfer() {
             <label>To Account:</label>
             <ul>
               <li>
-                <input type="text" id="transfer-to-id"/>
+                <input 
+                  type="text" 
+                  id="transfer-to-id" 
+                  value={reciever} 
+                  onChange={(e) => setReciever(e.target.value)}
+                />
               </li>
             </ul>
           </div>
@@ -18,15 +44,21 @@ function Transfer() {
             <label>Amount:</label>
             <ul>
               <li>
-                <input type="number" id="amount"/>
+                <input 
+                  type="number" 
+                  id="amount" 
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
               </li>
             </ul>
           </div>
           <p className="trade-buttons">
-            <button id="btn-transfer">
+            <button id="btn-transfer" onClick={handleClick} disabled={disabled} >
               Transfer
             </button>
           </p>
+          <p id="transfer-feedback" hidden={isHidden}>{feedback}</p>
         </div>
       </div>
     </div>
