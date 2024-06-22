@@ -41,8 +41,8 @@ actor Token {
         // Check whether the current user has not redeemed already
         if (balances.get(msg.caller) == null) {
             let freeTokenAmount = 10000;
-            balances.put(msg.caller, freeTokenAmount);
-            return "Success!";
+            let result = await transfer(msg.caller, freeTokenAmount);
+            return result;
         } else {
             return "Already Claimed!";
         }
