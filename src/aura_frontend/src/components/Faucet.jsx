@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { AuthClient } from "@dfinity/auth-client";
 
-import { aura_backend } from "../../../declarations/aura_backend";
+import { aura_backend, canisterId, createActor } from "../../../declarations/aura_backend";
 
 function Faucet() {
   
@@ -10,6 +11,16 @@ function Faucet() {
   // Redeem the tokens to the user's account
   async function handleClick() {
     setDisabled(true);
+
+    const authClient = await AuthClient.create();
+    const identity = await authClient.getIdentity();
+
+    const authenticatedCanister = createActor(canisterId, {
+      agentOptions: {
+        identity,
+      },
+    });
+
     const res = await aura_backend.payOut();
     setButtonText(res);
   }
