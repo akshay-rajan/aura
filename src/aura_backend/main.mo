@@ -45,7 +45,7 @@ actor Token {
     // By default, all public methods are shared
     // We can use shared method to identify the principal id of the canister calling it
     public shared(msg) func payOut() : async Text {
-        // Debug.print(debug_show(msg));
+        Debug.print("Free AURA requested by " # debug_show(msg.caller));
         // Check whether the current user has not redeemed already
         if (balances.get(msg.caller) == null) {
             let freeTokenAmount = 10000;
@@ -59,7 +59,7 @@ actor Token {
     // Transfer Tokens from the function caller to another id
     public shared(msg) func transfer(to : Principal, amount : Nat) : async Text {
         let fromBal = await balanceOf(msg.caller);
-        Debug.print(debug_show(fromBal));
+        var status = "";
         // Check for sufficient balance
         if (fromBal > amount) {
             
@@ -70,10 +70,21 @@ actor Token {
             let newToBal = (await balanceOf(to)) + amount;
             balances.put(to, newToBal);
 
-            return "Success!";
+
+            status := "Success!";
         } else {
-            return "Insufficient Balance!"
+            status := "Insufficient Balance!"
         };
+        
+        Debug.print("
+            ---TRANSFER---\n
+            From: "# debug_show(msg.caller) # "\n
+            To: "# debug_show(to) # "\n
+            Amount: "# debug_show(amount) # "\n
+            Status: "# status 
+        );
+
+        return status;
     };
     
     // Back-up and restore the ledger on upgrade (SYSTEM FUNCTIONS)
