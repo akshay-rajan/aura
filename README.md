@@ -1,11 +1,34 @@
-# `aura`
+# `AURA`
 
-Aura is a Crypto Token.
+Aura is a fungible [Crypto Token](#what-is-a-crypto-token).
+This token is built to study the development and deployment of decentralized applications on the Internet Computer blockchain. 
+The project uses Motoko in the backend and React on the front-end.
+Users can login using Internet Identity, an on-chain authentication service similar to OAuth. 
+After that, a user can recieve free 10000 AURA tokens to their account.
+The user can check their balance or transfer some tokens to another account, using the reciever's identity.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+<table>
+    <tr>
+        <th>Name</th>
+        <td>Aura</td>
+    </tr>
+    <tr>
+        <th>Symbol</th>
+        <td>AURA</td>
+    </tr>
+</table>
+
+## What is a Crypto Token?
+
+A crypto token is a type of digital asset that represents a unit of value or utility on a blockchain network.
+Unlike cryptocurrencies such as Bitcoin or Ethereum, which have their own blockchains, tokens are typically built on existing blockchain platforms, like Ethereum or Internet Computer.
+Tokens can represent various things, such as assets, rights or access.
+They rely on the underlying technology of a blockchain for secure transactions and transparent record-keeping. 
+Behavior and properties of a token is defined by smart contracts.
+Different blockchain platforms have their own token standards, for example ERC-20 in Ethereum or ICRC-1 (fungible), ICRC-7 (NFT) etc. in Internet Computer.
+Tokens can be transferred between addresses on the blockchain, allowing for peer-to-peer transactions without the need for intermediaries like banks.
+
+An example of a crypto token is The Shiba Inu Coin (SHIB), which operates on the Ethereum blockchain, implementing the ERC-20 token standard.
 
 ```bash
 cd aura/
