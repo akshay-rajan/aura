@@ -12,14 +12,14 @@ function Faucet() {
   async function handleClick() {
     setDisabled(true);
 
-    const authClient = await AuthClient.create();
-    const identity = await authClient.getIdentity();
+    // const authClient = await AuthClient.create();
+    // const identity = await authClient.getIdentity();
 
-    const authenticatedCanister = createActor(canisterId, {
-      agentOptions: {
-        identity,
-      },
-    });
+    // const authenticatedCanister = createActor(canisterId, {
+    //   agentOptions: {
+    //     identity,
+    //   },
+    // });
 
     const res = await aura_backend.payOut();
     setButtonText(res);

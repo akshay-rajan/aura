@@ -8,7 +8,7 @@ import Iter "mo:base/Iter";
 actor Token {
 
     // Token properties
-    let owner : Principal = Principal.fromText("34vio-ivgye-qlzr7-3llli-mqhgg-2k2bd-73lwc-fs24p-pvpzo-v44m2-lqe");
+    let owner : Principal = Principal.fromText("u2maw-us7wx-4q5xs-d7mnz-bxus5-jmdko-bgczz-3c54j-vnwz6-nlqb5-uqe");
     let totalSupply : Nat = 1_000_000_000;
     let symbol : Text = "AURA";
 
@@ -22,6 +22,7 @@ actor Token {
     // Deposit tokens to the owner
     if (balances.size() < 1) {
         balances.put(owner, totalSupply);
+        Debug.print("Topping up 1_000_000_000 AURA to owner: " # debug_show(owner));
     };
 
     public query func balanceOf(account : Principal) : async Nat {
@@ -58,6 +59,7 @@ actor Token {
     // Transfer Tokens from the function caller to another id
     public shared(msg) func transfer(to : Principal, amount : Nat) : async Text {
         let fromBal = await balanceOf(msg.caller);
+        Debug.print(debug_show(fromBal));
         // Check for sufficient balance
         if (fromBal > amount) {
             
