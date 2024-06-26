@@ -22,10 +22,11 @@ actor Token {
     // Deposit tokens to the owner
     if (balances.size() < 1) {
         balances.put(owner, totalSupply);
-        Debug.print("Topping up 1_000_000_000 AURA to owner: " # debug_show(owner));
+        Debug.print("\nAssigning 1_000_000_000 AURA to owner: " # debug_show(owner));
     };
 
     public query func balanceOf(account : Principal) : async Nat {
+        Debug.print("\nBalance requested by: " # debug_show(account));
         // Default return value of .get is ?Type, meaning, either Type or null.
         // Hence we need to convert the ?Nat type here to Nat
         var balance : Nat = switch (balances.get(account)) {
@@ -90,11 +91,13 @@ actor Token {
     // Back-up and restore the ledger on upgrade (SYSTEM FUNCTIONS)
     system func preupgrade() {
         // Convert the hashmap to an array and reassign it
+        Debug.print("\n_________Pre-Upgrade________");
         balanceEntries := Iter.toArray(balances.entries());
     };
 
     system func postupgrade() {
         // Fetch from the array to the hashmap
+        Debug.print("\n_________Post-Upgrade________");
         balances := HashMap.fromIter<Principal, Nat>(balanceEntries.vals(), 1, Principal.equal, Principal.hash);
     };
 
