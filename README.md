@@ -30,6 +30,17 @@ Tokens can be transferred between addresses on the blockchain, allowing for peer
 
 An example of a crypto token is The Shiba Inu Coin (SHIB), which operates on the Ethereum blockchain, implementing the ERC-20 token standard.
 
+## Live
+
+Frontend canister via browser
+* aura_frontend: https://ulodo-zyaaa-aaaal-qjgkq-cai.icp0.io/
+
+Backend canister via Candid interface:
+* aura_backend: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=umpf2-uaaaa-aaaal-qjgka-cai
+* internet_identity: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=rdmx6-jaaaa-aaaaa-aaadq-cai
+
+
+
 ```bash
 cd aura/
 dfx help

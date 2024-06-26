@@ -12,16 +12,19 @@ function Faucet() {
   async function handleClick() {
     setDisabled(true);
 
-    // const authClient = await AuthClient.create();
-    // const identity = await authClient.getIdentity();
+    const authClient = await AuthClient.create();
+    const identity = await authClient.getIdentity();
 
-    // const authenticatedCanister = createActor(canisterId, {
-    //   agentOptions: {
-    //     identity,
-    //   },
-    // });
+    // Create an authenticated canister
+    // This canister's principal id is used for calling the method from
+    const authenticatedCanister = createActor(canisterId, {
+      agentOptions: {
+        identity,
+      },
+    });
 
-    const res = await aura_backend.payOut();
+    // const res = await aura_backend.payOut();
+    const res = await authenticatedCanister.payOut();
     setButtonText(res);
   }
 
