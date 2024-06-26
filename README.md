@@ -18,6 +18,12 @@ The user can check their balance or transfer some tokens to another account, usi
     </tr>
 </table>
 
+## [Live Demo](https://ulodo-zyaaa-aaaal-qjgkq-cai.icp0.io/)
+
+Frontend canister via browser: https://ulodo-zyaaa-aaaal-qjgkq-cai.icp0.io/
+
+Backend canister via Candid interface: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=umpf2-uaaaa-aaaal-qjgka-cai
+
 ## What is a Crypto Token?
 
 A crypto token is a type of digital asset that represents a unit of value or utility on a blockchain network.
@@ -30,57 +36,11 @@ Tokens can be transferred between addresses on the blockchain, allowing for peer
 
 An example of a crypto token is The Shiba Inu Coin (SHIB), which operates on the Ethereum blockchain, implementing the ERC-20 token standard.
 
-## Live
-
-Frontend canister via browser
-* aura_frontend: https://ulodo-zyaaa-aaaal-qjgkq-cai.icp0.io/
-
-Backend canister via Candid interface:
-* aura_backend: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=umpf2-uaaaa-aaaal-qjgka-cai
-* internet_identity: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=rdmx6-jaaaa-aaaaa-aaadq-cai
 
 
+## Development
 
-```bash
-cd aura/
-dfx help
-dfx canister --help
-```
-
-## Running the project locally
-
-If you want to test your project locally, you can use the following commands:
-
-```bash
-# Starts the replica, running in the background
-dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
-
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-
-echo $OWNER_PUBLIC_KEY
-principal "34vio-ivgye-qlzr7-3llli-mqhgg-2k2bd-73lwc-fs24p-pvpzo-v44m2-lqe"
-
-dfx canister call token balanceOf "( $OWNER_PUBLIC_KEY )"
-dfx canister call aura_backend balanceOf "( $OWNER_PUBLIC_KEY )"
-(1_000_000_000 : nat)
-
-
-# ------------------------------------------------
-
-# Check your Balance
+### Check your Balance
 
 1. Find out your principal id:
 
@@ -108,7 +68,7 @@ echo $OWNER_PUBLIC_KEY
 dfx canister call token balanceOf "( $OWNER_PUBLIC_KEY )"
 ```
 
-# Charge the Canister
+### Charge the Canister
 
 
 1. Check canister ID:
@@ -131,7 +91,7 @@ echo $CANISTER_PUBLIC_KEY
 dfx canister call token transfer "($CANISTER_PUBLIC_KEY, 500_000_000)"
 ```
 
-# Deploy the Project to the Live IC Network
+### Deploy the Project to the Live IC Network
 
 1. Create and deploy canisters:
 
@@ -158,10 +118,9 @@ echo $LIVE_CANISTER_KEY
 ```
 dfx canister --network ic call token transfer "($LIVE_CANISTER_KEY, 50_000_000)"
 ```
-
 6. Get live canister front-end id:
 ```
 dfx canister --network ic id token_assets
 ```
-7. Copy the id from step 6 and add .raw.ic0.app to the end to form a URL.
-e.g. zdv65-7qaaa-aaaai-qibdq-cai.raw.ic0.app
+7. Copy the id from step 6 and add `.icp0.io` to the end to form a URL.
+

@@ -12,7 +12,7 @@ function App(props) {
     <main id="screen">
       <Main userPrincipal={props.user} />
       <Balance />
-      <Transfer />
+      <Transfer userPrincipal={props.user} />
       <Footer />
     </main>
   );

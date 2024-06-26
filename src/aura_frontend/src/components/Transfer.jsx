@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { AuthClient } from "@dfinity/auth-client";
 
-import { aura_backend } from "../../../declarations/aura_backend";
+import { canisterId, createActor } from "../../../declarations/aura_backend";
 import { Principal } from "@dfinity/principal";
 
 
-function Transfer() {
+function Transfer(props) {
   
   let [reciever, setReciever] = useState("");
   let [amount, setAmount] = useState("");
@@ -16,7 +17,17 @@ function Transfer() {
     setDisable(true);
     const recipient = Principal.fromText(reciever);
     const amt = Number(amount);
-    const result = await aura_backend.transfer(recipient, amt);
+
+    const authClient = await AuthClient.create();
+    const identity = await authClient.getIdentity();
+    const authenticatedCanister = createActor(canisterId, {
+      agentOptions: {
+        identity,
+      },
+    });
+
+    const result = await authenticatedCanister.transfer(recipient, amt);
+
     setFeedback(result);
     setHidden(false);
     setDisable(false);
