@@ -6,11 +6,11 @@ import Balance from './Balance';
 import Transfer from './Transfer';
 import Footer from './Footer';
 
-function App() {
+function App(props) {
 
   return (
     <main id="screen">
-      <Main />
+      <Main userPrincipal={props.user} />
       <Balance />
       <Transfer />
       <Footer />

@@ -25,10 +25,9 @@ const init = async () => {
 async function handleAuthenticated(authClient) {
   const id = await authClient.getIdentity();
   const userId = id._principal.toString();
-  console.log(userId);
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <App />
+      <App user={userId} />
     </React.StrictMode>,
   );
 }

@@ -3,7 +3,7 @@ import { AuthClient } from "@dfinity/auth-client";
 
 import { aura_backend, canisterId, createActor } from "../../../declarations/aura_backend";
 
-function Faucet() {
+function Faucet(props) {
   
   const [isDisabled, setDisabled] = useState(false);
   const [buttonText, setButtonText] = useState("Redeem");
@@ -33,7 +33,7 @@ function Faucet() {
       <h2>
         Faucet
       </h2>
-      <label>Get your free 10,000 Aura to your account.</label>
+      <label>Get your free 10,000 Aura to your account:<br></br> {props.userPrincipal}</label>
       <p className="trade-buttons">
         <button id="btn-payout" onClick={handleClick} disabled={isDisabled}>{buttonText}</button>
       </p>

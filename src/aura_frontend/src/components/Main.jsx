@@ -3,11 +3,11 @@ import React from "react";
 import Header from "./Header";
 import Faucet from "./Faucet";
 
-function Main() {
+function Main(props) {
     return (
         <div className="main-div">
             <Header />
-            <Faucet />
+            <Faucet userPrincipal={props.userPrincipal} />
         </div>
     );
 }
